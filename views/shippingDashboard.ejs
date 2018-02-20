@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html>
+
+<% include ../partials/stylesheetLinks %>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+
+<body class="hold-transition skin-blue sidebar-mini">
+
+<div class="wrapper" >
+
+
+  <% include ../partials/Shippingheader %>
+
+  <% include ../partials/navShip %>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Shipping Admin
+        <small>Track the shipping Details.</small>
+      </h1>
+      <ol class="breadcrumb">
+
+
+
+        <form  action="/shipAdminsignup" method="get" >
+        <input class="btn btn-primary" type="submit" value="Add an Admin"  style="height: 3em; margin: 2px; width: 8em" />
+      </form>
+      </ol>
+
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div style="width:850px" class="box box-widget widget-user-2">
+          <!-- Add the bg color to the header using any of the bg-* classes -->
+          <div style="height: 40px" class="bg-red">
+            <h4 style="padding-left: 10px; padding-top: 10px;"><i style="padding-right: 10px;" class="fa fa-fw fa-exclamation-circle"></i>Items Pending for Shipping</h4>
+          </div>
+
+            <div class="box-body">
+              <table  class="table table-bordered">
+                <tr>
+                  <th>Product ID</th>
+                  <th>Product Name</th>
+                  <th>Quantity</th>
+                  <th>Size</th>
+                  <th>Colour</th>
+                  <th>Customer ID</th>
+                  <th>Shipping method</th>
+
+                      <th>Details</th>
+                        <th>Button</th>
+                </tr>
+                  <% var i = 0; %>
+            <% result.forEach(function(result){ %>
+              <% if (result.shipStatus == "Not Shipped" && result.sentForShippingDep == "Yes") {
+
+                  var ship;
+                  if(result.ShippingID==1)
+                  ship = "Normal";
+                  else
+                  ship = "Speed"; %>
+                    <tr>
+                      <td><%= result.PID %></td>
+                      <td><%= result.PName %></td>
+                      <td><%= result.Quantity %></td>
+                      <td><%= result.Size %></td>
+                      <td><%= result.Colour %></td>
+                      <td><%= result.CID %></td>
+                      <td><%= ship %></td>
+                          <td><a href="/customerDetails?cid=<%=result.CID %>">See details</a></td>
+                          <form action="/shippingDashboard?OID=<%=result.OrderID%>" method="post">
+                              <td><input class="btn btn-primary" type="submit" id="send"  value="Shipped" /></td>
+                          </form>
+                    </tr>
+              <% i++; } %>
+            <% })%>
+            <% if(i == 0) { %>
+                <tr>
+            <td colspan="5">No items for Shipping.</td>
+            </tr>
+              <% } %>
+            </table>
+
+          </div>
+        </div>
+
+    </section>
+    <!-- /.content -->
+
+
+  </div>
+
+</div>
+<!-- ./wrapper -->
+
+<% include ../partials/scripts %>
+
+<script>
+var socket = io.connect('http://localhost:8080');
+var btn = document.getElementById('send');
+var mesg2 = "New item was shipped successfully !!" ;
+
+socket.on('sentShipping', function(data){
+     alert( data.message2);
+});
+
+btn.addEventListener('click', function(){
+    socket.emit('shipped', {
+        message: mesg2
+    });
+});
+
+</script>
+
+
+</body>
+</html>

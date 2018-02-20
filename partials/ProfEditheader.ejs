@@ -1,0 +1,43 @@
+
+      <!-- Sidebar toggle button-->
+      <nav class="navbar navbar-default">
+      <div class="container">
+          <div class="navbar-header"><a href="/" class="navbar-brand navbar-link">Retail Management</a>
+              <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+          </div>
+          <div class="collapse navbar-collapse" id="navcol-1">
+              <ul class="nav navbar-nav navbar-right">
+
+
+
+              <li class="dropdown user user-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="/dist/img/user.jpg" class="user-image" alt="User Image">
+                  <span class="hidden-xs"><%= sess.username %></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- User image -->
+                  <li class="user-header">
+                    <img src="/dist/img/user.jpg" class="img-circle" alt="User Image">
+
+                    <p>
+                      <%= sess.username %>
+                      <small>Member</small>
+                    </p>
+                  </li>
+                  <!-- Menu Footer-->
+                  <li class="user-footer">
+    <!--                 <div class="pull-left">
+                      <a href="#" class="btn btn-default btn-flat">Profile</a>
+                    </div> -->
+                    <div class="pull-right">
+
+                      <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+      </div>
+  </nav>

@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+
+<% include ../partials/stylesheetLinks %>
+
+
+<body class="hold-transition skin-blue sidebar-mini">
+
+<div class="wrapper">
+
+
+  <% include ../partials/Shippingheader %>
+
+  <% include ../partials/navShip %>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Shipping Admin
+        <small>Track the shipping Details.</small>
+      </h1>
+      <ol class="breadcrumb">
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title">Customer Details</h3>
+          </div>
+          <div class="box-body">
+                  <h2>Customer Name : <%= result[0].FName + " " + result[0].LName %></h2>
+                  <h2>Address : <%=result[0].Address %><h2>
+                    <h2>Email Address :  <%= result[0].Email %><h2>
+                    <h2>Username :  <%= result[0].Username %><h2>
+            </div>
+          </div>
+          <!-- /.box -->
+    </section>
+    <!-- /.content -->
+
+
+  </div>
+
+</div>
+<!-- ./wrapper -->
+
+
+
+<% include ../partials/scripts %>
+
+
+
+</body>
+</html>

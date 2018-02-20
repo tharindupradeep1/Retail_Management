@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<% include ../partials/stylesheetLinks %>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <% include ../partials/header %>
+
+  <% include ../partials/nav %>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Removed Admin
+        <small>Remove an Admin when necessary.</small>
+      </h1>
+
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <center><h3>Admin of Username <b style= "color:red" > <%= result[0].Username %>  </b> and User ID : <b style= "color:red" >    <%= result[0].AdminID %> </b> was removed Successfully..!!</h3></center>
+    </section>
+    <!-- /.content -->
+  </div>
+
+</div>
+<!-- ./wrapper -->
+
+<% include ../partials/scripts %>
+
+
+
+</body>
+</html>

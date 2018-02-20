@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html>
+
+<% include ../partials/stylesheetLinks %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <style>
+  html, body, #container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  }
+  </style>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+
+  <% include ../partials/header %>
+
+  <% include ../partials/nav %>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Sale of Goods(Chart)
+        <small>Track your inventory.</small>
+      </h1>
+
+    </section>
+
+
+    <!-- Main content -->
+
+        <form action="/chart" method="post">
+      <center><input type="text" class="search" id="month" placeholder="Insert year and month(YYYY-MM)" style="width:20%;" required="required" name="month"/>
+        <input class="inputbtn" type="submit" value="GO" style="height:26px; width:60px" /></center>
+    </form>
+        <u><center><h3>Sale of Goods Chart for <b style= "color:red" ><%= date %> </b> Month</h3></center></u>
+    <section class="content">
+        <div class="box-body">
+        <canvas id="myChart"></canvas>
+          </div>
+    </section>
+    <!-- /.content -->
+  </div>
+
+</div>
+<!-- ./wrapper -->
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10","11", "12", "13", "14", "15", "16", "17", "18", "19", "20","21", "22", "23", "24", "25", "26", "27", "28", "29", "30","31"],
+        datasets: [{
+            label: "Sale of Shirts",
+            //backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [],
+        },{
+            label: "Sale of Trousers",
+            //backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(51, 51, 255)',
+            data: [],
+        },{
+            label: "Sale of Frock",
+            //backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(0,153, 0)',
+            data: [],
+        },{
+            label: "Sale of Blouse",
+            //backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(0, 0, 0)',
+            data: [],
+        },{
+            label: "Sale of Skirt",
+            //backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 255, 51)',
+            data: [],
+        },{
+            label: "Sale of Shorts",
+            //backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(128, 128, 128)',
+            data: [],
+        },{
+            label: "Sale of Saree",
+            //backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(102, 255, 255)',
+            data: [],
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+
+
+  <%for(i=0;i<31;i++){%>
+chart.data.datasets[0].data[<%=i%>] = <%=sess.value[i]%>;
+chart.data.datasets[1].data[<%=i%>] = <%=sess.valueTrouser[i]%>;
+chart.data.datasets[2].data[<%=i%>] = <%=sess.valueFrock[i]%>;
+chart.data.datasets[3].data[<%=i%>] = <%=sess.valueBlouse[i]%>;
+chart.data.datasets[4].data[<%=i%>] = <%=sess.valueSkirt[i]%>;
+chart.data.datasets[5].data[<%=i%>] = <%=sess.valueShorts[i]%>;
+chart.data.datasets[6].data[<%=i%>] = <%=sess.valueSaree[i]%>;
+<%}%>
+
+chart.update(); // Calling update now animates the position of March from 90 to 50
+</script>
+<% include ../partials/scripts %>
+
+
+</body>
+</html>

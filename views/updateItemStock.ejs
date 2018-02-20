@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html>
+
+<% include ../partials/stylesheetLinks %>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <% include ../partials/header %>
+
+  <% include ../partials/nav %>
+
+
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Add Items
+        <small>Add new inventry items to the stock.</small>
+      </h1>
+
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+
+        <div class="col-md-6">
+          <div class="box box-primary">
+
+          <div>
+          <form action="/updateItemStock" role="form" method="post" enctype="multipart/form-data">
+              <div class="box-body">
+
+              </div>
+              <div class="dropdown">
+              <!-- /.box-body -->
+              <div class="form-group">
+                <label class="col-md-3 control-label" for="itemName">Product Name</label>
+                <input type="text" class="form-control" id="PName" placeholder="Enter name" required="required" name="PName">
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-3 control-label">Select Category</label>
+                <select class="form-control" id="selectCategory" name="selectCategory" required="required">
+                  <option disabled selected value></value>
+                      <% result.forEach(function(result){ %>
+                    <option><%= result.CategoryName %></option>
+                  <% }) %>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3 control-label" for="reorderQuantity">Brand</label>
+                <select class="form-control" id="BrandL" name="BrandL" required="required">
+                  <option disabled selected value></value>
+                      <% result5.forEach(function(result5){ %>
+                    <option><%= result5.Brand %></option>
+                  <% }) %>
+                    <option>Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label  style= "color:red" for="units">Brand(If the Brand is not in the list)</label>
+                <input type="text" class="form-control" id="Brand" placeholder="Enter Brand(Optional)" name="Brand">
+              </div>
+
+
+              <div class="form-group">
+                <label class="col-md-3 control-label" for="reorderQuantity">Vendor</label>
+                <select class="form-control" id="vendorL" name="vendorL" required="required">
+                  <option disabled selected value></value>
+                      <% result6.forEach(function(result6){ %>
+                    <option><%= result6.Company %></option>
+                  <% }) %>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3 control-label" for="reorderQuantity">Size</label>
+                <select class="form-control" id="SizeL" name="SizeL" required="required">
+                  <option disabled selected value></value>
+                      <% result3.forEach(function(result3){ %>
+                    <option><%= result3.Size %></option>
+                  <% }) %>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label  style= "color:red" for="units">Size(If the size is not in the list)</label>
+                <input type="text" class="form-control" id="Size" placeholder="Enter Size(Optional)" name="Size">
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3 control-label" for="reorderQuantity">Colour</label>
+                <select class="form-control" id="ColourL" name="ColourL" required="required">
+                  <option disabled selected value></value>
+                      <% result4.forEach(function(result4){ %>
+                    <option><%= result4.Colour %></option>
+
+                  <% }) %>
+                    <option>Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label  style= "color:red" for="units">Colour(If the colour is not in the list)</label>
+                <input type="text" class="form-control" id="Colour" placeholder="Enter Colour(Optional)" name="Colour">
+              </div>
+
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="units">Quantity</label>
+              <input type="number" class="form-control" id="StockAmnt" placeholder="Enter units" required="required" name="StockAmnt">
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="units">Discount Applied</label>
+              <input type="number" class="form-control" id="discount" placeholder="Enter units" required="required" name="discount">
+            </div>
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="reorderQuantity">Reorder Quantity</label>
+              <input type="number" class="form-control" id="reorderLevel" placeholder="Enter reorder quantity" required="required" name="reorderLevel">
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="MaximumPrice">Maximum Price</label>
+              <input type="number" class="form-control" id="MPrice" placeholder="Enter Maximum Price" required="required" name="MPrice">
+            </div>
+
+            <div class="form-group">
+            <label for="mob_no" class="col-md-3 control-label">Product Image</label>
+                    <input class="form-control" type="file" name="PImage" accept=""/>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="reorderQuantity">Description</label>
+              <input type="text" class="form-control" id="Description" placeholder="Enter Description" required="required" name="Description">
+            </div>
+
+
+
+				    </div>
+	        </div> <!-- /form-group-->
+
+              <div class="box-footer">
+                <input type="submit" id="Add" value="Add" class="btn btn-primary"/>
+              </div>
+            </form>
+          </div>
+
+
+
+
+  </div>
+    </section>
+    <!-- /.content -->
+  </div>
+
+</div>
+<!-- ./wrapper -->
+
+<% include ../partials/scripts %>
+
+
+</body>
+</html>

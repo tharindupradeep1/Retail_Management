@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html>
+
+<% include ../partials/stylesheetLinks %>
+  <link rel="stylesheet" type="text/css" href="dataTables/dataTables.min.css">
+  <style>
+  /* Center the loader */
+  #loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Add animation to "page content" */
+  .animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s
+  }
+
+  @-webkit-keyframes animatebottom {
+    from { bottom:-100px; opacity:0 }
+    to { bottom:0px; opacity:1 }
+  }
+
+  @keyframes animatebottom {
+    from{ bottom:-100px; opacity:0 }
+    to{ bottom:0; opacity:1 }
+  }
+
+  #myDiv {
+    display: none;
+
+  }
+  </style>
+<body onload="myFunction()" class="hold-transition skin-blue sidebar-mini">
+  <div id="loader"></div>
+<div class="wrapper" id="myDiv">
+
+
+  <% include ../partials/header %>
+
+  <% include ../partials/nav %>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Reports
+        <small>Track your inventory.</small>
+      </h1>
+
+
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+
+        <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title">Transactions from :  <%= start %>  to  <%= end %></h3>
+            <h3>For Product  :  <%= item %></h3>
+          </div>
+          <div class="box-body">
+              <table id="usage">
+                <thead>
+                  <tr>
+                    <th>Bill ID</th>
+                    <th>Delivery Date</th>
+                    <th>Billing Date</th>
+                    <th>Quantity</th>
+                    <th>Size</th>
+                    <th>Colour</th>
+                    <th>Payment Done</th>
+                  </tr>
+                  </thead>
+                    <tbody>
+                  <% var i = 0; %>
+                <% result.forEach(function(result){ %>
+                    <tr>
+                      <td><%= result.BillID %></td>
+                      <td><%= result.DeliveryDate %></td>
+                      <td><%= result.BillingDate %></td>
+                      <td><%= result.Quantity %></td>
+                      <td><%= result.Size %></td>
+                      <td><%= result.Colour %></td>
+                      <td><%= parseFloat(result.Quantity)*parseFloat(result.MPrice) %> </td>
+                    </tr>
+                  <% i++; }); %>
+                  <%if(i == 0) { %>
+                  </tbody>
+                      <tr>
+                        <td colspan="5"> No transactions in given time period. </td>
+                      </tr>
+                  <% } %>
+                </table>
+            </div>
+          </div>
+          <!-- /.box -->
+
+          <script type="text/javascript" charset="utf8" src="dataTables/jquery-1.8.2.min.js"></script>
+            <script type="text/javascript" charset="utf8" src="dataTables/dataTables.min.js"></script>
+            <script>
+            $(function(){
+              $("#usage").dataTable();
+            })
+            </script>
+
+    </section>
+    <!-- /.content -->
+  </div>
+
+</div>
+<!-- ./wrapper -->
+<script>
+var myVar;
+
+function myFunction() {
+    myVar = setTimeout(showPage, 500);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+}
+</script>
+
+
+<% include ../partials/scripts1 %>
+
+
+</body>
+</html>

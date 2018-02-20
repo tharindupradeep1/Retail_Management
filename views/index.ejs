@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Code Breakers</title>
+<!--/tags -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Elite Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--//tags -->
+<link href="/prof/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/prof/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/prof/css/font-awesome.css" rel="stylesheet">
+<link href="/prof/css/easy-responsive-tabs.css" rel='stylesheet' type='text/css'/>
+<!-- //for bootstrap working -->
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<!-- header -->
+<div class="header">
+	<div class="container">
+		<ul>
+		    <li> <a href="/login" ><i class="fa fa-unlock-alt" aria-hidden="true"></i> Log In </a></li>
+			<li> <a href="/signup" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
+		</ul>
+	</div>
+</div>
+<!-- //header -->
+<!-- header-bot -->
+<div class="header-bot">
+	<div class="header-bot_inner_wthreeinfo_header_mid">
+		<div class="col-md-2 header-middle">
+			<h1><a href="/">CodeBreakers</a></h1>
+
+		</div>
+		<!-- header-bot -->
+
+			<div class="col-md-6 logo_agile">
+        <form action="/search" method="post">
+
+              <center><input type="text" name="searcht" placeholder="What are you looking for?" style="height:35px; width:250px" />
+                <select class="btn btn-default dropdown-toggle" required="required" id="categ" name="categ">
+                <% result.forEach(function(result) { %>
+                  <option><%= result.CategoryName %></option>
+                <% }); %>
+              </select>
+
+            <input class="inputbtn" type="submit" value="Search" style="height:35px; width:100px" />  </center>
+        </form>
+
+			</div>
+
+		<div class="clearfix"></div>
+	</div>
+</div>
+<!-- //header-bot -->
+
+
+<!-- banner -->
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1" class=""></li>
+			<li data-target="#myCarousel" data-slide-to="2" class=""></li>
+			<li data-target="#myCarousel" data-slide-to="3" class=""></li>
+			<li data-target="#myCarousel" data-slide-to="4" class=""></li>
+		</ol>
+		<div class="carousel-inner" role="listbox">
+			<div class="item active">
+				<div class="container">
+					<div class="carousel-caption">
+						<h3>The Biggest <span>Sale</span></h3>
+
+					</div>
+				</div>
+			</div>
+			<div class="item item2">
+				<div class="container">
+					<div class="carousel-caption">
+						<h3>Summer <span>Collection</span></h3>
+						<p>New Arrivals On Sale</p>
+
+					</div>
+				</div>
+			</div>
+			<div class="item item3">
+				<div class="container">
+					<div class="carousel-caption">
+						<h3>The Biggest <span>Sale</span></h3>
+						<p>Special for today</p>
+
+					</div>
+				</div>
+			</div>
+			<div class="item item4">
+				<div class="container">
+					<div class="carousel-caption">
+						<h3>Summer <span>Collection</span></h3>
+						<p>New Arrivals On Sale</p>
+
+					</div>
+				</div>
+			</div>
+			<div class="item item5">
+				<div class="container">
+					<div class="carousel-caption">
+						<h3>The Biggest <span>Sale</span></h3>
+						<p>Special for today</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+		<!-- The Modal -->
+    </div>
+	<!-- //banner -->
+
+
+
+<!-- footer -->
+<div class="footer">
+	<div class="footer_agile_inner_info_w3l">
+		<div class="col-md-3 footer-left">
+			<h2><a href="/">Code Breakers </a></h2>
+			<p>Buy Now or Cry Later</p>
+<p>Large amount of people have a huge interest for our products. Don't hesitate to buy our products with best quality.</p>
+
+		</div>
+		<div class="col-md-9 footer-right">
+			<div class="sign-grds">
+				<div class="col-md-4 sign-gd">
+					<h4>Our <span>Information</span> </h4>
+					<ul>
+						<li><a href="/">Home</a></li>
+
+
+					</ul>
+				</div>
+
+				<div class="col-md-5 sign-gd-two">
+					<h4>Store <span>Information</span></h4>
+					<div class="w3-address">
+						<div class="w3-address-grid">
+						<div class="w3-address-grid">
+							<div class="w3-address-left">
+								<i class="fa fa-envelope" aria-hidden="true"></i>
+							</div>
+							<div class="w3-address-right">
+								<h6>Email Address</h6>
+								<p>Email :<a href="mailto:example@email.com">codebreakers@gmail.com</a></p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="w3-address-grid">
+							<div class="w3-address-left">
+								<i class="fa fa-map-marker" aria-hidden="true"></i>
+							</div>
+							<div class="w3-address-right">
+								<h6>Location</h6>
+								<p>Katubedda, Moratuwa.
+
+								</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+				</div>
+
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<
+		<div class="clearfix"></div>
+	</div>
+		<p class="copy-right"> All rights reserved | Design by <a href="http://w3layouts.com/">CodeBreakers</a></p>
+	</div>
+</div>
+<!-- //footer -->
+
+
+
+
+
+
+<!-- for bootstrap working -->
+<script type="text/javascript" src="/prof/js/bootstrap.js"></script>
+</body>
+</html>

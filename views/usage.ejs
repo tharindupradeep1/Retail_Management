@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<% include ../partials/stylesheetLinks %>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+<% include ../partials/header %>
+
+<% include ../partials/nav %>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Transaction Details
+        <small>Calculate usage of an item within a date range.</small>
+      </h1>
+  
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="box box-primary">
+
+        <div>
+        <form action="/usageR" method="post">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="startDate">Start Date</label>
+                  <input type="date" class="form-control datepicker" id="startDate" placeholder="Choose a start date" style="width:25%;" required="required" name="startDate"/>
+                </div>
+
+                <div class="form-group">
+                  <label for="endDate">End Date</label>
+                  <input type="date" class="form-control datepicker" id="endDate" placeholder="Choose an end date" style="width:25%;" required="required" name="endDate"/>
+                </div>
+
+                <div class="form-group" style="width:25%;">
+                  <label>Select item</label>
+                  <select class="form-control" required="required" id="item" name="item">
+                  <% result2.forEach(function(result2) { %>
+                    <option><%= result2.PName %></option>
+                  <% }); %>
+                </select>
+                </div>
+
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+              </div>
+            </form>
+        </div>
+        </div>
+
+    </section>
+    <!-- /.content -->
+  </div>
+
+</div>
+<!-- ./wrapper -->
+
+<% include ../partials/scripts %>
+
+</body>
+</html>

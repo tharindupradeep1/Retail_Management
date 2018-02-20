@@ -1,0 +1,110 @@
+<!-- views/delivery.ejs -->
+<!doctype html>
+<html>
+<head>
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="/searchPage/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/searchPage/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/searchPage/assets/css/user.css">
+
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/user.css">
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+    <style>
+    .dropbtn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {background-color: #f1f1f1}
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+        background-color: #3e8e41;
+    }
+    </style>
+      <% include ../partials/stylesheetLinks %>
+      <link href="/prof/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+      <link href="/prof/css/style.css" rel="stylesheet" type="text/css" media="all" />
+      <link href="/prof/css/font-awesome.css" rel="stylesheet">
+      <link href="/prof/css/easy-responsive-tabs.css" rel='stylesheet' type='text/css'/>
+</head>
+
+
+		<body>
+        <% include ../partials/Inheader %>
+
+        <% if (message.length > 0) { %>
+          <div class="alert alert-danger"><%= message %></div>
+        <% } %>
+		<div class="head">
+		<center><h3>Please select your Shipping Method</h3></center>
+		</br></br>
+		</div>
+			<!--<form action=>-->
+
+      <div class="container">
+          <div class="row product">
+
+              <div class="col-md-7">
+                  <h3> Shipping Method: </h3>
+                <div class="dropdown">
+        <button class="dropbtn">Shipping</button>
+        <div class="dropdown-content">
+            <% result.forEach(function(result){ %>
+          <a href="/shipping2?ShippingID=<%=result.ShippingID%>"><%= result.ShippingMethod %></a>
+          <% }) %>
+
+        </div>
+      </div>
+                                </div>
+          </div>
+
+      </div>
+
+     <footer class="site-footer">
+        <div class="container">
+            <hr>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h5>Retail Management© </h5></div>
+                <div class="col-sm-6 social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+            </div>
+        </div>
+    </footer>
+    <script src="searchPage/assets/js/jquery.min.js"></script>
+    <script src="searchPage/assets/bootstrap/js/bootstrap.min.js"></script>
+	</body>
+</html>

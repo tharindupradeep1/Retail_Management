@@ -1,0 +1,117 @@
+
+
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/user.css">
+    <% include ../partials/stylesheetLinks %>
+    <link href="/prof/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/prof/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/prof/css/font-awesome.css" rel="stylesheet">
+    <link href="/prof/css/easy-responsive-tabs.css" rel='stylesheet' type='text/css'/>
+</head>
+
+<body>
+      <% include ../partials/Inheader %>
+
+<div class="box">
+  <h2>
+    Promotions
+  </h2>
+  <div class="box-body">
+        <table class="table table-bordered">
+          <tr>
+            <th>Promotion Code</th>
+            <th>Promotion Amount</th>
+
+          </tr>
+          <% var i = 0; %>
+        <% result.forEach(function(result){ %>
+            <tr>
+              <td><%= result.promotionCode %></td>
+              <td><%= result.proAmnt %></td>
+            </tr>
+          <% i++; }); %>
+          <%if(i == 0) { %>
+              <tr>
+                <td colspan="5"> No promotions available. </td>
+              </tr>
+          <% } %>
+        </table>
+    </div>
+  </div>
+
+
+  <div class="footer">
+  	<div class="footer_agile_inner_info_w3l">
+  		<div class="col-md-3 footer-left">
+  			<h2><a href="index.html">Code Breakers </a></h2>
+  			<p>Buy Now or Cry Later</p>
+  <p>Large amount of people have a huge interest for our products. Don't hesitate to buy our products with best quality.</p>
+
+  		</div>
+  		<div class="col-md-9 footer-right">
+  			<div class="sign-grds">
+  				<div class="col-md-4 sign-gd">
+  					<h4>Our <span>Information</span> </h4>
+  					<ul>
+  						<li><a href="/">Home</a></li>
+  						<li><a href="/cart">Cart</a></li>
+  						<li><a href="/promotions">Promotions</a></li>
+  						<li><a href="/summary">Summary</a></li>
+  						<li><a href="/editprofile">Edit Profile</a></li>
+
+  					</ul>
+  				</div>
+
+  				<div class="col-md-5 sign-gd-two">
+  					<h4>Store <span>Information</span></h4>
+  					<div class="w3-address">
+  						<div class="w3-address-grid">
+  						<div class="w3-address-grid">
+  							<div class="w3-address-left">
+  								<i class="fa fa-envelope" aria-hidden="true"></i>
+  							</div>
+  							<div class="w3-address-right">
+  								<h6>Email Address</h6>
+  								<p>Email :<a href="mailto:example@email.com">codebreakers@gmail.com</a></p>
+  							</div>
+  							<div class="clearfix"> </div>
+  						</div>
+  						<div class="w3-address-grid">
+  							<div class="w3-address-left">
+  								<i class="fa fa-map-marker" aria-hidden="true"></i>
+  							</div>
+  							<div class="w3-address-right">
+  								<h6>Location</h6>
+  								<p>Katubedda, Moratuwa.
+
+  								</p>
+  							</div>
+  							<div class="clearfix"> </div>
+  						</div>
+  					</div>
+  				</div>
+
+  				<div class="clearfix"></div>
+  			</div>
+  		</div>
+  		<
+  		<div class="clearfix"></div>
+  	</div>
+  		<p class="copy-right"> All rights reserved | Design by <a href="http://w3layouts.com/">CodeBreakers</a></p>
+  	</div>
+  </div>
+  <!-- //footer -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

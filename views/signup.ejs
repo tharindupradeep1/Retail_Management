@@ -1,0 +1,115 @@
+<!-- views/signup.ejs -->
+<!doctype html>
+<html>
+<head>
+	<title>Signup</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+	<style>
+		body 		{ padding-top:80px; }
+	</style>
+	<% include ../partials/stylesheetLinks %>
+</head>
+<body>
+<div class="container">
+
+<div class="col-sm-6 col-sm-offset-3">
+
+	<h1><i class="fa fa-university" aria-hidden="true"></i> Signup</h1>
+
+	<!-- show any messages that come back with authentication -->
+	<% if (message.length > 0) { %>
+		<div class="alert alert-danger"><%= message %></div>
+	<% } %>
+
+	<script type="text/javascript">
+						function validateForm(){
+								if (document.forms["sign"]["fname"].value == "") {
+								alert("First Name must be filled out");
+								return false;
+								}
+								else if (document.forms["sign"]["lname"].value == "") {
+								alert("Last Name must be filled out");
+								return false;
+								}
+								else if (document.forms["sign"]["username"].value == "") {
+								alert("Username must be filled out");
+								return false;
+								}
+								else if (document.forms["sign"]["address"].value == "") {
+								alert("Address must be filled out");
+								return false;
+								}
+								else if (document.forms["sign"]["email"].value == "") {
+								alert("Email Address must be filled out");
+								return false;
+								}
+								else if((document.forms["sign"]["password"].value == "")|| (document.forms["sign"]["cpassword"].value == ""))  {
+								alert("Password fields must be filled out");
+								return false;
+								}
+								else if(document.forms["sign"]["password"].value.length<7)  {
+								alert("Please enter more than 6 characters for Password");
+								return false;
+								}
+								else if(document.forms["sign"]["password"].value != document.forms["sign"]["cpassword"].value)  {
+								alert("Passwords does not match");
+								return false;
+								}
+
+								else if(!document.getElementById("myCheck").checked){
+								alert("Checkbox haven't filled");
+								return false;
+								}
+						}
+				</script>
+
+	<!-- LOGIN FORM -->
+	<form name="sign" action="/signup"  method="post" onsubmit="return validateForm()">
+
+		<div class="form-group">
+				<label>First Name</label>
+				<input type="text" class="form-control" name="fname">
+		</div>
+		<div class="form-group">
+				<label>Last Name</label>
+				<input type="text" class="form-control" name="lname">
+		</div>
+		<div class="form-group">
+			<label>Username</label>
+			<input type="text" class="form-control" name="username">
+		</div>
+
+		<div class="form-group">
+				<label>Address</label>
+				<input type="text" class="form-control" name="address">
+		</div>
+		<div class="form-group">
+				<label>Email</label>
+				<input type="email" class="form-control" name="email">
+		</div>
+
+		<div class="form-group">
+			<label>Password</label>
+			<input type="password" class="form-control" name="password">
+		</div>
+		<div class="form-group">
+				<label>Confirm Password</label>
+				<input type="password" class="form-control" name="cpassword">
+		</div>
+				<div class="form-group">
+		<input name="accept" type="checkbox" id="myCheck" size="30"/> I Accept the user terms and agreements
+			</div>
+		<button type="submit" class="btn btn-warning btn-lg">Signup</button>
+	</form>
+
+	<hr>
+
+	<p>Already have an account? <a href="/login">Login</a></p>
+	<p>Or go <a href="/">home</a>.</p>
+
+</div>
+
+</div>
+</body>
+</html>

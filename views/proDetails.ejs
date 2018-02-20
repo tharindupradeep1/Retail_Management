@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="/proDetails/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/proDetails/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/proDetails/assets/css/user.css">
+
+    <script type="text/javascript">
+  						function validateForm(){
+  								if (document.forms["cart"]["quantity"].value == "") {
+  								alert("Please fill the quantity");
+  								return false;
+  								}
+
+  						}
+  				</script>
+    <% include ../partials/stylesheetLinks %>
+    <link href="/prof/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/prof/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/prof/css/font-awesome.css" rel="stylesheet">
+    <link href="/prof/css/easy-responsive-tabs.css" rel='stylesheet' type='text/css'/>
+
+</head>
+
+<body>
+      <% include ../partials/Inheader %>
+
+
+    <div class="container">
+        <div class="row product">
+
+            <div class="col-md-5 col-md-offset-0"><img class="img-responsive" src='/images/uploads/<%= prod[0].ProductImage %>'></div>
+            <div class="col-md-7">
+
+  <form name="cart" action="/adedCart" method="post" onsubmit="return validateForm()">
+                        <h2><%= prod.PName%></h2>
+
+				<h5>Size          :
+
+          <select class="form-control" onchange="updateSecondSelection();" required="required" id="Size" name="Size">
+          <% result1.forEach(function(result1) {
+              if(size==result1.Size){%>
+            <option selected="selected" value= <%=result1.Size %> ><%=result1.Size %></option>
+          <%}%>
+            <%if(size!=result1.Size){%>
+            <option value= <%=result1.Size %> ><%=result1.Size %></option>
+          <% }}); %>
+        </select>
+				</h5>
+
+				<h5>Colour       :
+				<select class="form-control" required="required" id="Colour" name="Colour">
+        <% result2.forEach(function(result2){ %>
+          <option><%= result2.Colour %></option>
+        <% }); %>
+      </select>
+				</h5>
+
+                <h3>Rs <%= prod[0].MPrice%> </h3>
+                  <%if(parseInt(prod[0].discount)>0){%>
+                  <h4 style= "color:red"> <%= prod[0].discount%>% OFF </h4>
+                    <h3 style= "color:blue">New Price : Rs <%=newPrice %> </h3>
+                  <%}%>
+                    <%if(parseInt(prod[0].discount)<0)
+                    newPrice = prod.MPrice; %>
+				<h5>Quantity          :
+				  <input type="text" name="quantity" id="quantity" style="height: 2em; width: 2em" />
+				  </h5>
+
+
+
+
+  <input class="btn btn-primary" type="submit" value="Add to cart" >
+                    <button class="btn btn-primary" type="submit" formaction="/shipping?PID=<%=prod[0].PID%>"> Buy it Now</button>
+            </div>
+        </div>
+        </form>
+        <div class="page-header">
+            <h3>Product Details</h3></div>
+        <p><%= prod[0].Description%></p>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="media">
+            <div class="media-body"></div>
+        </div>
+        <div class="media">
+            <div class="media-body"></div>
+        </div>
+    </div>
+<script>
+    function updateSecondSelection(){
+    var sizes= document.getElementById('Size');
+    var select = sizes.value;
+    location.assign("/proDetails2?size="+select+"");
+    }
+
+</script>
+<div class="footer">
+  <div class="footer_agile_inner_info_w3l">
+    <div class="col-md-3 footer-left">
+      <h2><a href="index.html">Code Breakers </a></h2>
+      <p>Buy Now or Cry Later</p>
+<p>Large amount of people have a huge interest for our products. Don't hesitate to buy our products with best quality.</p>
+
+    </div>
+    <div class="col-md-9 footer-right">
+      <div class="sign-grds">
+        <div class="col-md-4 sign-gd">
+          <h4>Our <span>Information</span> </h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/cart">Cart</a></li>
+            <li><a href="/promotions">Promotions</a></li>
+            <li><a href="/summary">Summary</a></li>
+            <li><a href="/editprofile">Edit Profile</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-md-5 sign-gd-two">
+          <h4>Store <span>Information</span></h4>
+          <div class="w3-address">
+            <div class="w3-address-grid">
+            <div class="w3-address-grid">
+              <div class="w3-address-left">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+              </div>
+              <div class="w3-address-right">
+                <h6>Email Address</h6>
+                <p>Email :<a href="mailto:example@email.com">codebreakers@gmail.com</a></p>
+              </div>
+              <div class="clearfix"> </div>
+            </div>
+            <div class="w3-address-grid">
+              <div class="w3-address-left">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+              </div>
+              <div class="w3-address-right">
+                <h6>Location</h6>
+                <p>Katubedda, Moratuwa.
+
+                </p>
+              </div>
+              <div class="clearfix"> </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <
+    <div class="clearfix"></div>
+  </div>
+    <p class="copy-right"> All rights reserved | Design by <a href="http://w3layouts.com/">CodeBreakers</a></p>
+  </div>
+</div>
+<!-- //footer -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

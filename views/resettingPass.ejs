@@ -1,0 +1,60 @@
+<!-- views/login.ejs -->
+<!doctype html>
+<html>
+<head>
+	<title>Node Authentication</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+	<style>
+		body 		{ padding-top:80px; }
+	</style>
+</head>
+<body>
+    <div class="container">
+        <div class="col-sm-6 col-sm-offset-3">
+            <h1><span class="fa fa-sign-in"></span> Password Reset</h1>
+
+						<script type="text/javascript">
+											function validateForm(){
+													if (document.forms["sign"]["username"].value == "") {
+													alert("Username must be filled out");
+													return false;
+													}
+													else if((document.forms["sign"]["NPass"].value == "") || (document.forms["sign"]["CNPass"].value == ""))  {
+													alert("Password fields must be filled out");
+													return false;
+													}
+													else if(document.forms["sign"]["NPass"].value.length<7)  {
+													alert("Please enter more than 6 characters for Password");
+													return false;
+													}
+													else if(document.forms["sign"]["NPass"].value != document.forms["sign"]["CNPass"].value)  {
+													alert("Passwords does not match");
+													return false;
+													}
+											}
+									</script>
+									<% if (message.length > 0) { %>
+										<div class="alert alert-danger"><%= message %></div>
+									<% } %>
+            <form name="sign" action="/resettingPass" method="post" onsubmit="return validateForm()" >
+
+							<div class="form-group">
+									<label>Username</label>
+									<input type="text" class="form-control" name="username">
+							</div>
+                <div class="form-group">
+                    <label>New Password</label>
+                    <input type="password" class="form-control" name="NPass">
+                </div>
+								<div class="form-group">
+                    <label>Confirm New Password</label>
+                    <input type="password" class="form-control" name="CNPass">
+                </div>
+                <button type="submit" class="btn btn-warning btn-lg">Done</button>
+            </form>
+            <p>Or go <a href="/">Home</a>.</p>
+        </div>
+    </div>
+</body>
+</html>

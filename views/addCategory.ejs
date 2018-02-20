@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<% include ../partials/stylesheetLinks %>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <% include ../partials/header %>
+
+  <% include ../partials/nav %>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Add Categories
+        <small>Update the inventory with any changes in stock categories.</small>
+      </h1>
+
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <% if (message.length > 0) { %>
+          <div class="alert alert-danger"><%= message %></div>
+        <% } %>
+        <div class="col-md-6">
+          <div class="box box-primary">
+
+          <div>
+          <form action="/addCategory" method="post">
+                <div class="box-body">
+                <div class="form-group">
+                    <label for="input1">Category Name</label>
+                    <input type="text" class="form-control" id="category" placeholder="Enter category name" name="category">
+                    </div>
+                </div>
+
+                <div class="box-body">
+                <div class="form-group">
+                    <label for="input1">Category Description</label>
+                    <input type="text" class="form-control" id="categoryDes" placeholder="Enter category Description" name="categoryDes">
+                    </div>
+                </div>
+
+
+                <!-- /.box-body -->
+
+                <div class="box-footer">
+                  <input type="submit" id="Add" value="Add" class="btn btn-primary"/>
+                </div>
+              </form>
+          </div>
+          </div>
+        </div>
+
+
+
+                <div class="col-md-6">
+                <div class="box box-primary">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">Remove a Category</h3>
+                  </div>
+                <div>
+                  <form action="/removeCategory" method="post">
+                        <div class="box-body">
+                        <div class="form-group">
+                            <label for="input1">Category Name</label>
+                            <select class="form-control" required="required" id="item2" name="item2">
+                            <% result1.forEach(function(result1) { %>
+                              <option><%= result1.CategoryName %></option>
+                            <% }); %>
+                          </select>
+                            </div>
+                        </div>
+
+                        <!-- /.box-body -->
+
+                        <div class="box-footer">
+                          <input type="submit" value="Remove" class="btn btn-primary"/>
+                        </div>
+                      </form>
+                </div>
+                </div>
+              </div>
+
+
+
+
+    </div>
+
+    </section>
+    <!-- /.content -->
+  </div>
+
+</div>
+<!-- ./wrapper -->
+
+
+
+<% include ../partials/scripts %>
+
+
+
+</body>
+</html>

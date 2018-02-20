@@ -1,0 +1,127 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+<head>
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="/searchPage/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/searchPage/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/searchPage/assets/css/user.css">
+
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/user.css">
+    <% include ../partials/stylesheetLinks %>
+    <link href="/prof/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/prof/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/prof/css/font-awesome.css" rel="stylesheet">
+    <link href="/prof/css/easy-responsive-tabs.css" rel='stylesheet' type='text/css'/>
+</head>
+<body>
+    <% include ../partials/Inheader %>
+
+    <div class="dropdown">
+
+    <form action="/search" method="post">
+
+      <center><input type="text" name="searcht" placeholder="What are you looking for?" />
+        <select class="btn btn-default dropdown-toggle" required="required" id="categ" name="categ">
+        <% result.forEach(function(result) {
+            if(categ == result.CategoryName){%>
+          <option selected="selected"><%= result.CategoryName %></option>
+              <%}else{%>
+            <option><%= result.CategoryName %></option>
+        <% }}); %>
+      </select>
+
+    <input class="inputbtn" type="submit" value="Search" style="height:40px; width:100px" />  </center>
+    </form>
+    </div>
+
+
+
+     <div class="container">
+     <h3> <%= userds.length %>  search results for product : <b style= "color:red" >   <%= skey %> </b></h3>
+     </div>
+
+
+        <% userds.forEach( function( userds ) { %>
+    <div class="container">
+        <div class="row product">
+            <div class="col-md-5 col-md-offset-0"><a href="#" title= '<%= userds.PName %>' class="thumbnail">  <img src ='/images/uploads/<%= userds.ProductImage %>'  width= "200px" height= "300px" >  </a></div>
+            <div class="col-md-7">
+                <h2><a href='/proDetails?id=<%=userds.PID%>' title=""><%= userds.PName %> </a></h2>
+                <h3>Rs <%= userds.MPrice %> </h3>
+            </div>
+              <button class="btn btn-primary" type="submit" onclick="window.location.href='/proDetails?id=<%=userds.PID%>'"> Add to cart</button>
+        </div>
+    </div>
+   <% }) %>
+
+   <div class="footer">
+     <div class="footer_agile_inner_info_w3l">
+       <div class="col-md-3 footer-left">
+         <h2><a href="index.html">Code Breakers </a></h2>
+         <p>Buy Now or Cry Later</p>
+   <p>Large amount of people have a huge interest for our products. Don't hesitate to buy our products with best quality.</p>
+
+       </div>
+       <div class="col-md-9 footer-right">
+         <div class="sign-grds">
+           <div class="col-md-4 sign-gd">
+             <h4>Our <span>Information</span> </h4>
+             <ul>
+               <li><a href="/">Home</a></li>
+               <li><a href="/cart">Cart</a></li>
+               <li><a href="/promotions">Promotions</a></li>
+               <li><a href="/summary">Summary</a></li>
+               <li><a href="/editprofile">Edit Profile</a></li>
+
+             </ul>
+           </div>
+
+           <div class="col-md-5 sign-gd-two">
+             <h4>Store <span>Information</span></h4>
+             <div class="w3-address">
+               <div class="w3-address-grid">
+               <div class="w3-address-grid">
+                 <div class="w3-address-left">
+                   <i class="fa fa-envelope" aria-hidden="true"></i>
+                 </div>
+                 <div class="w3-address-right">
+                   <h6>Email Address</h6>
+                   <p>Email :<a href="mailto:example@email.com">codebreakers@gmail.com</a></p>
+                 </div>
+                 <div class="clearfix"> </div>
+               </div>
+               <div class="w3-address-grid">
+                 <div class="w3-address-left">
+                   <i class="fa fa-map-marker" aria-hidden="true"></i>
+                 </div>
+                 <div class="w3-address-right">
+                   <h6>Location</h6>
+                   <p>Katubedda, Moratuwa.
+
+                   </p>
+                 </div>
+                 <div class="clearfix"> </div>
+               </div>
+             </div>
+           </div>
+
+           <div class="clearfix"></div>
+         </div>
+       </div>
+       <
+       <div class="clearfix"></div>
+     </div>
+       <p class="copy-right"> All rights reserved | Design by <a href="http://w3layouts.com/">CodeBreakers</a></p>
+     </div>
+   </div>
+   <!-- //footer -->
+    <script src="searchPage/assets/js/jquery.min.js"></script>
+    <script src="searchPage/assets/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>

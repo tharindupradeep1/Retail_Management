@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<% include ../partials/stylesheetLinks %>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <% include ../partials/header %>
+
+  <% include ../partials/nav %>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Remove an Admin
+        <small>Remove an Admin when necessary.</small>
+      </h1>
+
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+
+        <div class="col-md-6">
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Remove Admin</h3>
+            </div>
+          <div>
+          <form action="/removeAdmin" method="post">
+              <div class="box-body">
+
+  <div class="form-group">
+    <label for="selectItem">Select Admin Username</label>
+    <select class="form-control" required="required" id="item" name="item">
+    <% result.forEach(function(result) { %>
+      <option><%= result.Username %></option>
+    <% }); %>
+  </select>
+    </div>
+
+              </div>
+              <!-- /.box-body -->
+
+              
+
+              <div class="box-footer">
+                <input type="submit" value="Remove" class="btn btn-danger"/>
+              </div>
+            </form>
+          </div>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+
+</div>
+<!-- ./wrapper -->
+
+<% include ../partials/scripts %>
+
+
+
+</body>
+</html>

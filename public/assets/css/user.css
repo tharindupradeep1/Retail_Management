@@ -1,0 +1,295 @@
+.navbar{
+  margin-bottom:0;
+  border:none;
+}
+
+.navbar-brand .glyphicon{
+  margin-right:6px;
+}
+
+.hero{
+  background:url(../../assets/img/city_bg.jpg) no-repeat center;
+  background-size:cover;
+  border:none;
+}
+
+@media (min-width:992px) {
+  .hero .get-it{
+    margin-top:20px;
+    padding-right:170px;
+    margin-left:285px;
+    margin-right:-200px;
+  }
+}
+
+@media (max-width:992px) {
+  .hero .get-it{
+    text-align:center;
+  }
+}
+
+@media (max-width:992px) {
+  .hero .phone-preview{
+    text-align:center;
+  }
+}
+
+.hero .get-it h1, .hero .get-it p{
+  color:#fff;
+  text-shadow:2px 2px 3px rgba(0,0,0,0.3);
+  margin-bottom:40px;
+}
+
+.hero .get-it .btn{
+  margin-left:10px;
+  margin-bottom:10px;
+  text-shadow:none;
+}
+
+div.iphone-mockup{
+  position:relative;
+  max-width:250px;
+  margin:20px;
+  display:inline-block;
+}
+
+.iphone-mockup img.device{
+  width:100%;
+  height:auto;
+}
+
+.iphone-mockup .screen{
+  position:absolute;
+  width:88%;
+  height:77%;
+  top:12%;
+  border-radius:2px;
+  left:6%;
+  border:1px solid #444;
+  background-color:#aaa;
+  overflow:hidden;
+  background:url(../../assets/img/screen-content-iphone-6.jpg);
+  background-size:cover;
+  background-position:center;
+}
+
+.iphone-mockup .screen:before{
+  content:'';
+  background-color:#fff;
+  position:absolute;
+  width:70%;
+  height:140%;
+  top:-12%;
+  right:-60%;
+  transform:rotate(-19deg);
+  opacity:0.2;
+}
+
+.icon-feature{
+  text-align:center;
+}
+
+.icon-feature .glyphicon{
+  font-size:60px;
+}
+
+section.features{
+  background-color:#369;
+  padding:40px 0;
+  color:#fff;
+}
+
+.features h2{
+  color:#fff;
+}
+
+.features .icon-features{
+  margin-top:15px;
+}
+
+.testimonials blockquote{
+  text-align:center;
+}
+
+section.testimonials{
+  margin:50px 0;
+}
+
+.site-footer{
+  padding:20px 0;
+  text-align:center;
+}
+
+@media (min-width:768px) {
+  .site-footer h5{
+    text-align:left;
+  }
+}
+
+.site-footer h5{
+  color:inherit;
+  font-size:20px;
+}
+
+.site-footer .social-icons a:hover{
+  opacity:1;
+}
+
+.site-footer .social-icons a{
+  display:inline-block;
+  width:32px;
+  border:none;
+  font-size:20px;
+  border-radius:50%;
+  margin:4px;
+  color:#fff;
+  text-align:center;
+  background-color:#798FA5;
+  height:32px;
+  opacity:0.8;
+  line-height:32px;
+}
+
+@media (min-width:768px) {
+  .site-footer .social-icons{
+    text-align:right;
+  }
+}
+
+div.search-bar{
+}
+
+.search{
+}
+
+.container > .navbar-header, .container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse{
+  margin-right:-15px;
+  margin-left:-15px;
+}
+
+.nav > li{
+  position:relative;
+  display:block;
+}
+
+.nav > li{
+  position:relative;
+  display:block;
+}
+
+div{
+}
+
+input{
+  line-height:normal;
+  width:350px;
+  height:35px;
+
+}
+
+.label{
+  display:inline;
+  padding:10px 30px 10px;
+  font-size:75%;
+  font-weight:bold;
+  line-height:1;
+  color:#020202;
+  text-align:center;
+  white-space:nowrap;
+  vertical-align:baseline;
+  border-radius:.25em;
+  margin-right:-25px;
+}
+
+.row{
+  margin-left:-10px;
+  margin-right:1px;
+}
+
+.jumbotron{
+  padding-top:30px;
+  padding-bottom:30px;
+  padding-right:10px;
+  margin-bottom:30px;
+  color:inherit;
+  background-color:#fafafa;
+}
+
+div.col-md-4.col-md-offset-0.col-md-pull-3.get-it{
+  padding-right:190px;
+  margin-left:320px;
+}
+
+div.col-md-3.col-md-offset-0.col-md-pull-3.get-it{
+  margin-left:122px;
+}
+
+div.col-md-3.col-md-offset-0.col-md-pull-3.get-it{
+  margin-left:90px;
+}
+
+div.dropdown{
+}
+
+div.dropdown{
+search
+}
+
+inputbutton{
+  margin-left:200px;
+}
+
+ul.dropdown-menu{
+}
+
+.dropdown-menu{
+  position:absolute;
+  top:100%;
+  left:0;
+  z-index:1000;
+  display:none;
+  float:left;
+  min-width:160px;
+  padding:5px 0;
+  margin:20px 660px 660px;
+  list-style:none;
+  font-size:14px;
+  text-align:left;
+  background-color:#ffffff;
+  border:1px solid #cccccc;
+  border:1px solid #e7e7e7;
+  border-radius:4px;
+  -webkit-box-shadow:0 6px 12px rgba(0,0,0,0.175);
+  box-shadow:0 6px 12px rgba(0,0,0,0.175);
+  -webkit-background-clip:padding-box;
+  background-clip:padding-box;
+}
+
+.carousel-inner{
+  position:relative;
+  overflow:hidden;
+  height:500px;
+
+}
+
+.carousel{
+  position:relative;
+
+  height:500px;
+}
+
+.img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img{
+  display:block;
+  max-width:1538px;
+  height:auto;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn.active.focus{
+  outline:thin dotted;
+  outline:5px auto -webkit-focus-ring-color;
+  outline-offset:-2px;
+}
+
+input.inputbtn{
+  margin-left:0px;
+}

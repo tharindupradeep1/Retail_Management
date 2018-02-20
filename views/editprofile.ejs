@@ -1,0 +1,228 @@
+
+<!doctype html>
+<html>
+<head>
+
+    <title>My Profile | e-shopping</title>
+
+      <% include ../partials/stylesheetLinks %>
+      <link href="/prof/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+      <link href="/prof/css/style.css" rel="stylesheet" type="text/css" media="all" />
+      <link href="/prof/css/font-awesome.css" rel="stylesheet">
+      <link href="/prof/css/easy-responsive-tabs.css" rel='stylesheet' type='text/css'/>
+</head>
+
+<body>
+
+  <% include ../partials/Inheader %>
+
+<!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+                <h1>
+        <%= result[0].FName %> <%= result[0].LName %>
+        <small>profile details</small>
+    </h1>
+
+        </section>
+
+        <!-- Main content -->
+        <% if (message1.length > 0) { %>
+          <div class="alert alert-danger"><%= message1 %></div>
+        <% } %>
+        <section class="content">
+<div class="nav-tabs-custom">
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="details">
+            <div class="row">
+                <div class="col-lg-8 col-md-7">
+                    <div class="panel panel-default">
+    <div class="panel-heading">Change User Details</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-10">
+
+                <form action="/editprofile" method="post">
+                <div class="form-group">
+                    <label for="first_name">Username   :</label>
+                  <input  type="text" id="username" name="username" value= "<%= result[0].Username %>">
+                </div>
+                <div class="form-group">
+                    <label for="first_name">First Name  :</label>
+                      <input  type="text" id="fname" name="fname" value= "<%= result[0].FName %>">
+
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name  :</label>
+                      <input  type="text" id="lname" name="lname" value= "<%= result[0].LName %>">
+
+                </div>
+                <div class="form-group">
+                    <label for="phone">Email       :</label>
+                      <input  type="email" id="email" name="email" size="30" value= "<%= result[0].Email %>">
+
+                </div>
+                <div class="form-group">
+                    <label for="address">Address     :</label>
+                      <input  type="text" id="address" name="address" size="30" value= "<%= result[0].Address %>">
+                </div>
+
+            <button style="margin-left:20%;" type="submit">Save changes</button>
+          </form>
+            </div>
+
+
+    </div>
+    </div>
+
+</div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+        </section><!-- /.content -->
+
+        <% if (message.length > 0) { %>
+          <div class="alert alert-danger"><%= message %></div>
+        <% } %>
+
+        <section class="content">
+<div class="nav-tabs-custom">
+
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="details">
+            <div class="row">
+                <div class="col-lg-8 col-md-7">
+    <div class="panel panel-default">
+    <div class="panel-heading">Change Username/ Password</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-10">
+
+
+              <script type="text/javascript">
+                        function validateForm(){
+                            if((document.forms["passwordChange"]["Curpassword"].value == "")|| (document.forms["passwordChange"]["password"].value == "")|| (document.forms["passwordChange"]["Cpassword"].value == ""))  {
+                            alert("Password fields must be filled out");
+                            return false;
+                            }
+                            else if(document.forms["passwordChange"]["password"].value.length<7)  {
+                            alert("Please enter more than 6 characters for New Password");
+                            return false;
+                            }
+                            else if(document.forms["passwordChange"]["password"].value != document.forms["passwordChange"]["Cpassword"].value)  {
+                            alert("New Passwords does not match");
+                            return false;
+                            }
+                        }
+                    </script>
+
+
+                  <form name="passwordChange" action="/editpassword" method="post" onsubmit="return validateForm()">
+                <div class="form-group">
+                    <label for="first_name">Username   :</label>
+                  <input  type="text" id="username" name="username" value= "<%= result[0].Username %>">
+                </div>
+                <div class="form-group">
+                    <label for="address">Current Password   :</label>
+                      <input  type="password" id="Curpassword" name="Curpassword" >
+                </div>
+                <div class="form-group">
+                    <label for="address">New Password   :</label>
+                      <input  type="password" id="password" name="password" >
+                </div>
+                <div class="form-group">
+                    <label for="address">Confirm New Password   :</label>
+                      <input  type="password" id="Cpassword" name="Cpassword" >
+                </div>
+                      <button style="margin-left:20%;">Save changes</button>
+                    </form>
+            </div>
+
+
+    </div>
+    </div>
+
+</div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+        </section><!-- /.content -->
+    </div><!-- /.content-wrapper -->
+
+    <div class="footer">
+    	<div class="footer_agile_inner_info_w3l">
+    		<div class="col-md-3 footer-left">
+    			<h2><a href="index.html">Code Breakers </a></h2>
+    			<p>Buy Now or Cry Later</p>
+    <p>Large amount of people have a huge interest for our products. Don't hesitate to buy our products with best quality.</p>
+
+    		</div>
+    		<div class="col-md-9 footer-right">
+    			<div class="sign-grds">
+    				<div class="col-md-4 sign-gd">
+    					<h4>Our <span>Information</span> </h4>
+    					<ul>
+    						<li><a href="/">Home</a></li>
+    						<li><a href="/cart">Cart</a></li>
+    						<li><a href="/promotions">Promotions</a></li>
+    						<li><a href="/summary">Summary</a></li>
+    						<li><a href="/editprofile">Edit Profile</a></li>
+
+    					</ul>
+    				</div>
+
+    				<div class="col-md-5 sign-gd-two">
+    					<h4>Store <span>Information</span></h4>
+    					<div class="w3-address">
+    						<div class="w3-address-grid">
+    						<div class="w3-address-grid">
+    							<div class="w3-address-left">
+    								<i class="fa fa-envelope" aria-hidden="true"></i>
+    							</div>
+    							<div class="w3-address-right">
+    								<h6>Email Address</h6>
+    								<p>Email :<a href="mailto:example@email.com">codebreakers@gmail.com</a></p>
+    							</div>
+    							<div class="clearfix"> </div>
+    						</div>
+    						<div class="w3-address-grid">
+    							<div class="w3-address-left">
+    								<i class="fa fa-map-marker" aria-hidden="true"></i>
+    							</div>
+    							<div class="w3-address-right">
+    								<h6>Location</h6>
+    								<p>Katubedda, Moratuwa.
+
+    								</p>
+    							</div>
+    							<div class="clearfix"> </div>
+    						</div>
+    					</div>
+    				</div>
+
+    				<div class="clearfix"></div>
+    			</div>
+    		</div>
+    		<
+    		<div class="clearfix"></div>
+    	</div>
+    		<p class="copy-right"> All rights reserved | Design by <a href="http://w3layouts.com/">CodeBreakers</a></p>
+    	</div>
+    </div>
+    <!-- //footer -->
+
+<% include ../partials/scripts %>
+    </body>
+</html>
