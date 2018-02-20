@@ -25,6 +25,7 @@ io.on('connection', function(socket) {
 	});
 
 	socket.on('shipped', function(data){
+			console.log(data.message);
 		io.sockets.emit('shipped', data);
 });
 		});
